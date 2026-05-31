@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Voice Chat Assistant</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #120b26, #1b1440, #1f295b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bgMove 12s infinite alternate ease-in-out;
+  }
+
+  @keyframes bgMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+
+  .container {
+    width: 95%;
+    max-width: 430px;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 26px;
+    padding: 18px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .header {
+    color: white;
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  #chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .bubble {
+    max-width: 80%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .assistant {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    align-self: flex-start;
+    backdrop-filter: blur(10px);
+    border-left: 4px solid #65d0ff;
+  }
+
+  .user {
+    background: #65d0ff;
+    color: #000;
+    align-self: flex-end;
+    border-right: 4px solid #ffffff;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  #micBtn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: radial-gradient(circle, #00eaff, #007bff);
+    color: white;
+    font-size: 60px;
+    box-shadow: 0 0 20px #00eaff;
+    transition: 0.3s ease;
+  }
+
+  #micBtn:hover {
+    box-shadow: 0 0 35px #00eaff;
+    transform: scale(1.08);
+  }
+
+  #micBtn.recording {
+    background: radial-gradient(circle, #ff4d4d, #b30000);
+    box-shadow: 0 0 35px #ff4d4d;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">🎙️ AI Voice Chat Assistant</div>
+
+  <div id="chat"></div>
+
+  <div class="footer">
+    <button id="micBtn"><i class="fa fa-microphone"></i></button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
